@@ -10,23 +10,33 @@ the critical and discerning audience of Hacker News lends credibility and valida
 industry actively participate in discussions, making it a platform for sharing ideas and engaging with the community.
 
 # Methodology
-## i. Setting Up the Project
-Installing necessary dependencies.
-Importing required libraries.
+The HackerNews Customizer application follows a straightforward methodology to provide users with curated content from Hacker News. Here's how it works:
 
-## ii. Scraping Hacker News with BeautifulSoup
-     Using requests to fetch the HTML content of Hacker News.
-     Parsing the HTML content with BeautifulSoup.
-     Selecting relevant elements (titles, links, votes) using CSS selectors.
+## 1. Fetching HTML Content: 
+The application sends a GET request to the Hacker News website using the requests module to retrieve the HTML content of the first page.
 
-## iii. Sorting Stories by Votes
-     Defining a function to sort stories by their votes.
-     Utilizing Python's sorted() function and lambda functions.
+## 2. Parsing HTML: 
+Using BeautifulSoup, the application parses the HTML content obtained from the response.
 
-## iv. Building the Custom Hacker News List
-     Combining titles, links, and votes into a custom Hacker News list.
-     Filtering stories based on vote count.
+## 3. Selecting Relevant Elements: 
+The application selects all links with the class 'titleline' and all elements with the class 'subtext' using CSS selectors. 
+These elements contain the titles, links, and votes for the stories on the page.
 
-## v. Putting It All Together: HackerNews Customizer Application
-    Creating a Python script that integrates all the steps above.
-    Running the script to generate the custom Hacker News list.
+## 4. Sorting Stories by Votes: 
+The application defines a function (sort_stories_by_votes()) to sort the retrieved stories based on their vote counts in descending order.
+
+## 5. Creating Custom Hacker News List: 
+Another function (create_custom_hn()) is defined to create a custom Hacker News list by iterating through the selected links and subtext elements. 
+It extracts the title, link, and votes for each story, filters out stories with less than 100 votes, and appends them to the list.
+
+## 6. Printing Custom Hacker News List: 
+Finally, the application prints the custom Hacker News list using the pprint module, providing users with a curated selection of stories from Hacker News.
+
+# Features
+
+Retrieves titles, links, and votes from the first page of Hacker News.
+Presents curated content in descending order based on votes.
+Enhances the Hacker News experience by providing streamlined access to high-quality content and discussions.
+
+# Contributions
+Contributions to HackerNews Customizer are welcome! If you encounter any issues or have suggestions for improvements, please open an issue or submit a pull request on GitHub.
